@@ -249,8 +249,6 @@ var users = [
   }
 ]
 
-
-
 var posts = []
 
 for (let index = 0; index < 100; index++) {
@@ -271,9 +269,6 @@ for (let index = 0; index < posts.length; index++) {
   element.userId = Math.floor(Math.random() * (10 - 1 + 1) + 1)
   
 }
-
-var initInerval = false;
-
 
 io.on('connection', (socket) => {
   socket.on('getChart', function(data){
@@ -321,28 +316,6 @@ io.on('connection', (socket) => {
       socket.emit('user',t)
     }
   });
-
-  if(false && !initInerval) {
-    initInerval = true;
-    simulate()
-  }
-
-  function simulate() {
-      console.log('sd')
-      var data={msg:{}}
-      data.msg.userId = Math.floor(Math.random() * (10 - 1 + 1) + 1);
-      data.msg.date = new Date();
-      data.msg.title ='1'
-      data.msg.body = '2'
-      posts.push(data.msg);
-      io.emit('chart', getChart())
-      socket.broadcast.emit('message',{msg:"Bot posted something",type:'success',store:'info'})
-      setTimeout(function(){
-        simulate()
-      },10000)
-  }
-
-
 });
 
 
