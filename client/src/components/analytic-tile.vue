@@ -7,6 +7,7 @@
     >
       <div class="total">
         {{ props.total }} 
+        <div v-if="props.title=='Ranking' && props.total==1" class="trophy"></div>
       </div>
     </card-analytics>
   </div>
@@ -83,7 +84,14 @@
           color: $base-text-color;
 
         }
-  
+        .trophy {
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          background: url(/src/assets/trophy.png);
+          background-size: 100% 100%;
+          vertical-align: middle;
+        }
         .state {
           display: inline-block;
           font-size: 19px;

@@ -53,12 +53,12 @@
   import type { Message } from '@/types/messages';
   
   const props = withDefaults(defineProps<{
-    messages: Message[],
+    messages: any[],
   }>(), {
     messages: () => [],
   });
   
-  const items = ref<Message[]>(props.messages);
+  const items = ref<any[]>(props.messages);
   const messageText = ref<string>('');
   const messageTitle = ref<string>('');
   

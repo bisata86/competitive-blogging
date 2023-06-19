@@ -106,6 +106,7 @@ socket.on("chart", (args) => {
       if(prev.position>curr.position) {
         customNotify('You gained '+Math.abs(prev.position-curr.position)+' positions','success',true)
         customNotify('You are now in '+formatCardinal(curr.position)+' position','success',true)
+
       }
       else if(prev.position<curr.position) {
         user.data.state = 'negative';
@@ -134,7 +135,7 @@ export function customNotify(a:string,b:string,store:boolean) {
     height: 40,
     width: 'auto',
     type: b,
-    displayTime: 2000,
+    displayTime: 2500,
     animation: {
       show: {
         type: 'fade', duration: 400, from: 0, to: 1,
